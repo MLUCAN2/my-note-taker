@@ -4,8 +4,7 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
-// Add in a unique id to the notes
-let ids= 1;
+
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
@@ -76,9 +75,7 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   // Add in id to the note object
-  const id= ids++;
   const newNote = {
-    id: id,
     title: noteTitle.value,
     text: noteText.value
   };
@@ -95,6 +92,7 @@ const handleNoteDelete = (e) => {
 
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  console.log ('Deleting note', noteId);
 
   if (activeNote.id === noteId) {
     activeNote = {};

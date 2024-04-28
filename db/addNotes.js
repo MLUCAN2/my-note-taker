@@ -1,10 +1,12 @@
 // Modules
 const fs= require ('fs');
 const path= require ('path');
+const { title } = require('process');
+const uuid= require('./uuid');
 
 // Function to add a note to the db
 function addNote(req,res){
-    const newNote= req.body;
+    const newNote= {title: req.body.title, text: req.body.text, id: uuid() };
 
     fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data)=>{
         if (err){
