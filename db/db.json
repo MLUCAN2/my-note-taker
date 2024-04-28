@@ -1,1 +1,1 @@
-[{"title":"Test Title","text":"Test text"},{"title":"My new note","text":"Today i made a note about a note being made."},{"title":"Astonished","text":"Wow this thing actually works!\n"}]
+[{"id":1,"title":"My new note","text":"I hope it has an id\n"},{"id":2,"title":"Yay","text":"It worked"}]

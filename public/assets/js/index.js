@@ -4,6 +4,8 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+// Add in a unique id to the notes
+let ids= 1;
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
@@ -73,7 +75,10 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  // Add in id to the note object
+  const id= ids++;
   const newNote = {
+    id: id,
     title: noteTitle.value,
     text: noteText.value
   };
