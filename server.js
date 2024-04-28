@@ -1,17 +1,26 @@
-const fs = require ('fs');
+// Modules
+const path= require('path');
 const express= require ('express');
-const path= require ('path');
-const api= require ('./public/assets/index.js')
+const addNotes= require('./db/addNotes.js');
+const readNotes= require('./db/readNotes.js')
 
+// Server
 const PORT = process.env.port || 3001;
 const app = express();
 
-// We will need middleware for parsing JSON 
+app.use(express.static(path.join(__dirname, './public')));
+
+// Middleware to parse data
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use('/api', api);
-app.use(express.static('public'));
-// We will need to define our routes
+app.use(express.urlencoded({extended:true}));
+
+// Routes to read and add notes
+app.get('/', (req, res) => 
+  res.sendFile(path.join(__dirname, './public/index.html')));
+app.get('/notes', (req, res) => 
+  res.sendFile(path.join(__dirname, './public/notes.html')));
+app.get('/api/notes', readNotes);
+app.post('/api/notes', addNotes);
 
 
 // We will need to start our server
