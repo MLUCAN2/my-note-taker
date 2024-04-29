@@ -23,3 +23,5 @@ Meg Myers (Tutor): assisting with the debugging of the deletion code.
 ## License
 
 N/A
+
+![note taker app](https://github.com/MLUCAN2/my-note-taker/assets/162901593/76250a26-6080-42cf-a722-c6fb8bbc901e)
